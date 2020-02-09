@@ -30,12 +30,8 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    public class jsonPersonComplex
+    public class jsonPersonComplex : jsonPerson
     {
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public double age { get; set; }
-        public bool isAlive { get; set; }
         public addr adress { get; set; }
 
         public class addr

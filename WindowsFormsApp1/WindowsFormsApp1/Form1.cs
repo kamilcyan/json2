@@ -39,17 +39,28 @@ namespace WindowsFormsApp1
         {
             try
             {
-                var jPersonComplex = JsonConvert.DeserializeObject<jsonPersonComplex>(strJSON);
+                var jPersonComplex = JsonConvert.DeserializeObject<jsonPersonArray>(strJSON);
                 debugOutput("Here's our JSON object: " + jPersonComplex.ToString());
                 debugOutput("Here's the First Name: " + jPersonComplex.firstname);
                 debugOutput("Here's the street adress: " + jPersonComplex.adress.postcode);
-                debugOutput("Here's the street adress: " + jPersonComplex.adress.street);
+                //debugOutput("Here's the street adress: " + jPersonComplex.adress.street);
+                //debugOutput("Here's the street adress: " + jPersonComplex.phoneNumbers.type + ": " + jPersonComplex.phoneNumbers.number);
+
+
+
 
 
                 //var jPerson = JsonConvert.DeserializeObject<dynamic>(strJSON);
                 //debugOutput("Here's our JSON object: " + jPerson.ToString());
                 //debugOutput("Here's the First Name: " + jPerson.firstname);
                 //debugOutput("Here's the street adress: " + jPerson.adress.street);
+
+                //debugOutput("Attempting to print phone adress: ");
+
+                foreach (var num in jPersonComplex.phoneNumbers)
+                {
+                    debugOutput(num.type.ToString() + ": " + num.number.ToString());
+                }
             }
             catch (Exception ex)
             {
